@@ -1,7 +1,8 @@
-package com.godlike.validator.oss.service;
+package com.godlike.validator.oss.service.person.impl;
 
-import com.godlike.validator.oss.vo.UserQuery;
-import com.godlike.validator.oss.vo.UserVo;
+import com.godlike.validator.oss.service.person.UserServiceV1;
+import com.godlike.validator.oss.vo.person.UserQueryV1;
+import com.godlike.validator.oss.vo.person.UserVoV1;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
@@ -9,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserService {
-    public List<UserVo> list(@Valid UserQuery listUserQuery) {
-        UserVo userVo = new UserVo();
+public class UserServiceV1Impl implements UserServiceV1 {
+    public List<UserVoV1> list(@Valid UserQueryV1 listUserQuery) {
+        UserVoV1 userVo = new UserVoV1();
         userVo.setPhone(listUserQuery.getPhone());
         userVo.setName("tom");
         userVo.setId("123456789");
@@ -20,13 +21,13 @@ public class UserService {
         userVo.setNickName("cat");
         userVo.setSex("man");
         userVo.setProfilePhoto("image");
-        List<UserVo> userVoList = new ArrayList<>();
+        List<UserVoV1> userVoList = new ArrayList<>();
         userVoList.add(userVo);
         return userVoList;
     }
 
-    public UserVo get(long id) {
-        UserVo userVo = new UserVo();
+    public UserVoV1 get(long id) {
+        UserVoV1 userVo = new UserVoV1();
         userVo.setPhone("18511223366");
         userVo.setName("tom");
         userVo.setId(String.valueOf(id));

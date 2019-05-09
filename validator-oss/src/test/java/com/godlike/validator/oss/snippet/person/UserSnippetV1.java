@@ -1,7 +1,7 @@
-package com.godlike.validator.oss.snippet;
+package com.godlike.validator.oss.snippet.person;
 
 import com.godlike.validator.oss.constraint.ConstrainedFields;
-import com.godlike.validator.oss.vo.UserVo;
+import com.godlike.validator.oss.vo.person.UserVoV1;
 import org.springframework.restdocs.payload.*;
 import org.springframework.restdocs.request.PathParametersSnippet;
 import org.springframework.restdocs.request.RequestDocumentation;
@@ -32,7 +32,7 @@ public class UserSnippetV1 {
 
 
     public static RequestFieldsSnippet createRequest() {
-        ConstrainedFields userVoConstrainedFields = new ConstrainedFields(UserVo.class);
+        ConstrainedFields userVoConstrainedFields = new ConstrainedFields(UserVoV1.class);
         return PayloadDocumentation.requestFields(
                 userVoConstrainedFields.fieldWithPath("phone").description("电话号码"),
                 userVoConstrainedFields.fieldWithPath("email").description("电子邮件").type(JsonFieldType.STRING).optional()

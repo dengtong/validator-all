@@ -1,9 +1,9 @@
-package com.godlike.validator.oss.web;
+package com.godlike.validator.oss.web.person;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.godlike.validator.oss.service.UserService;
-import com.godlike.validator.oss.vo.UserQuery;
-import com.godlike.validator.oss.vo.UserVo;
+import com.godlike.validator.oss.service.person.UserServiceV1;
+import com.godlike.validator.oss.vo.person.UserQueryV1;
+import com.godlike.validator.oss.vo.person.UserVoV1;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -20,31 +20,31 @@ import java.util.List;
 @RestController
 public class UserApiV1 {
     @Resource
-    private UserService userService;
+    private UserServiceV1 userServiceV1;
 
     @GetMapping
-    @JsonView({UserVo.ListViewV1.class})
+    @JsonView({UserVoV1.ListView.class})
     @ResponseStatus(HttpStatus.OK)
-    public List<UserVo> list(@Valid UserQuery userQuery, @PageableDefault Pageable pageable) {
-        return userService.list(userQuery);
+    public List<UserVoV1> list(@Valid UserQueryV1 userQuery, @PageableDefault Pageable pageable) {
+        return userServiceV1.list(userQuery);
     }
 
     @GetMapping("/{id}")
-    @JsonView({UserVo.GetViewV1.class})
+    @JsonView({UserVoV1.GetView.class})
     @ResponseStatus(HttpStatus.OK)
-    public UserVo get(@PathVariable long id) {
-        return userService.get(id);
+    public UserVoV1 get(@PathVariable long id) {
+        return userServiceV1.get(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UserVo create(@Validated({UserVo.CreateGroupV1.class}) @RequestBody UserVo userVo) {
+    public UserVoV1 create(@Validated({UserVoV1.CreateGroup.class}) @RequestBody UserVoV1 userVo) {
         return userVo;
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public UserVo update(@PathVariable long id, @Validated({UserVo.UpdateGroupV1.class}) @RequestBody UserVo userVo) {
+    public UserVoV1 update(@PathVariable long id, @Validated({UserVoV1.UpdateGroup.class}) @RequestBody UserVoV1 userVo) {
         return userVo;
 
     }
