@@ -1,0 +1,65 @@
+= *文档*
+:toc: left
+:toclevels: 3
+:toc-title: 目  录
+:doctype: book
+:source-highlighter: highlightjs
+:icons: font
+:operation-http-request-title: Http 请求
+:operation-request-parameters-title: 请求参数说明
+:operation-request-fields-title: 请求参数说明
+:operation-http-response-title: Http 响应
+:operation-response-fields-title: Http 响应字段说明
+
+[[overview]]
+== 1、概要
+本文为API说明文档。
+
+API 遵守 RESTFul 风格
+
+API的说明包括：请求方式、请求地址、请求参数说明和响应消息等。
+
+[[overview-response]]
+== 2、通用说明
+
+*错误响应消息说明*
+
+|===
+| 字段 | 类型 | 解释
+
+| error
+| String
+| 错误信息
+
+|===
+
+[[resources-restful]]
+== 3、API
+
+[[resources-restful-user]]
+=== 3.1、User
+
+[[resources-restful-user-list]]
+==== 3.1.1、User 列表
+
+operation::user/list-user[snippets='http-request,request-parameters,http-response,response-fields']
+
+[[resources-restful-user-detail]]
+==== 3.1.2、User 详情
+
+operation::user/get-user[]
+
+[[resources-restful-user-add]]
+==== 3.1.3、User 添加
+
+operation::user/create-user[]
+
+[[resources-restful-user-update]]
+==== 3.1.4、User 更新
+
+operation::user/update-user[]
+
+[[resources-restful-user-delete]]
+==== 3.1.5、User 删除
+
+operation::user/delete-user[]
