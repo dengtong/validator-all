@@ -1,0 +1,4 @@
+server:
+    port: 16080
+    servlet:
+        context-path: /validator-portal
