@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class UserService {
-    public List<UserVo> listUser(@Valid UserQuery listUserQuery) {
+    public List<UserVo> list(@Valid UserQuery listUserQuery) {
         UserVo userVo = new UserVo();
         userVo.setPhone(listUserQuery.getPhone());
         userVo.setName("tom");
@@ -25,7 +25,7 @@ public class UserService {
         return userVoList;
     }
 
-    public UserVo getUser(long id) {
+    public UserVo get(long id) {
         UserVo userVo = new UserVo();
         userVo.setPhone("18511223366");
         userVo.setName("tom");

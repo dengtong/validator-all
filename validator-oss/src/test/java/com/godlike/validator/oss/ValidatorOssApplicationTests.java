@@ -20,6 +20,4 @@ public class ValidatorOssApplicationTests {
     @Test
     public void contextLoads() {
     }
-
-
 }

@@ -12,11 +12,11 @@ import java.util.Date;
 
 @Data
 public class UserVo {
-    @JsonView({getUserVoView.class})
+    @JsonView({GetViewV1.class})
     private String nickName;
-    @JsonView({getUserVoView.class})
+    @JsonView({GetViewV1.class})
     private String profilePhoto;
-    @JsonView({getUserVoView.class})
+    @JsonView({GetViewV1.class})
     private String sex;
     private String politicalStatus;
     private String birthPlace;
@@ -24,9 +24,9 @@ public class UserVo {
     private String industry;
     @Email
     private String email;
-    @NotBlank(message = "请输入手机号", groups = {UserVoCreateGroup.class})
-    @Phone(message = "请输入正确的手机号", groups = {UserVoUpdateGroup.class, UserVoCreateGroup.class})
-    @JsonView({listUserVoView.class})
+    @NotBlank(message = "请输入手机号", groups = {CreateGroupV1.class})
+    @Phone(message = "请输入正确的手机号", groups = {UpdateGroupV1.class, CreateGroupV1.class})
+    @JsonView({ListViewV1.class})
     private String phone;
     private String company;
     private String department;
@@ -34,24 +34,28 @@ public class UserVo {
     private String studentNumber;
     @Valid
     private Address address;
-    @JsonView({listUserVoView.class})
+    @JsonView({ListViewV1.class})
     private String name;
-    @JsonView({listUserVoView.class})
+    @JsonView({ListViewV1.class})
     private String idNumber;
     private String wxNumber;
     private String password;
-    @NotBlank(message = "id不能为空", groups = {UserVoUpdateGroup.class})
-    @JsonView({listUserVoView.class})
+    @NotBlank(message = "id不能为空", groups = {UpdateGroupV1.class})
+    @JsonView({ListViewV1.class})
     private String id;
-    @JsonView({listUserVoView.class})
+    @JsonView({ListViewV1.class})
     private boolean delete;
     private Date birthday;
-    public interface listUserVoView {
+
+    public interface ListViewV1 {
     }
-    public interface getUserVoView extends listUserVoView {
+
+    public interface GetViewV1 extends ListViewV1 {
     }
-    public interface UserVoCreateGroup extends Default {
+
+    public interface CreateGroupV1 extends Default {
     }
-    public interface UserVoUpdateGroup extends Default {
+
+    public interface UpdateGroupV1 extends Default {
     }
 }

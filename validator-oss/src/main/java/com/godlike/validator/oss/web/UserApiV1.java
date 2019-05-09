@@ -15,36 +15,36 @@ import javax.validation.Valid;
 import java.util.List;
 
 
-@RequestMapping("/v1/user")
+@RequestMapping("/user/v1")
 @CrossOrigin
 @RestController
-public class UserApi {
+public class UserApiV1 {
     @Resource
     private UserService userService;
 
     @GetMapping
-    @JsonView({UserVo.listUserVoView.class})
+    @JsonView({UserVo.ListViewV1.class})
     @ResponseStatus(HttpStatus.OK)
-    public List<UserVo> listUser(@Valid UserQuery userQuery, @PageableDefault Pageable pageable) {
-        return userService.listUser(userQuery);
+    public List<UserVo> list(@Valid UserQuery userQuery, @PageableDefault Pageable pageable) {
+        return userService.list(userQuery);
     }
 
     @GetMapping("/{id}")
-    @JsonView({UserVo.getUserVoView.class})
+    @JsonView({UserVo.GetViewV1.class})
     @ResponseStatus(HttpStatus.OK)
-    public UserVo getUser(@PathVariable long id) {
-        return userService.getUser(id);
+    public UserVo get(@PathVariable long id) {
+        return userService.get(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UserVo createUser(@Validated({UserVo.UserVoCreateGroup.class}) @RequestBody UserVo userVo) {
+    public UserVo create(@Validated({UserVo.CreateGroupV1.class}) @RequestBody UserVo userVo) {
         return userVo;
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public UserVo updateUser(@Validated({UserVo.UserVoUpdateGroup.class}) @RequestBody UserVo userVo) {
+    public UserVo update(@PathVariable long id, @Validated({UserVo.UpdateGroupV1.class}) @RequestBody UserVo userVo) {
         return userVo;
 
     }

@@ -37,29 +37,29 @@ API的说明包括：请求方式、请求地址、请求参数说明和响应�
 == 3、API
 
 [[resources-restful-user]]
-=== 3.1、User
+=== 3.1、用户
 
 [[resources-restful-user-list]]
-==== 3.1.1、User 列表
+==== 3.1.1、列表
 
-operation::user/list-user[snippets='http-request,request-parameters,http-response,response-fields']
+operation::user/list[snippets='http-request,request-parameters,http-response,response-fields']
 
 [[resources-restful-user-detail]]
-==== 3.1.2、User 详情
+==== 3.1.2、详情
 
-operation::user/get-user[]
+operation::user/get[]
 
 [[resources-restful-user-add]]
-==== 3.1.3、User 添加
+==== 3.1.3、添加
 
-operation::user/create-user[]
+operation::user/create[]
 
 [[resources-restful-user-update]]
-==== 3.1.4、User 更新
+==== 3.1.4、更新
 
-operation::user/update-user[]
+operation::user/update[]
 
 [[resources-restful-user-delete]]
-==== 3.1.5、User 删除
+==== 3.1.5、删除
 
-operation::user/delete-user[]
+operation::user/delete[]
