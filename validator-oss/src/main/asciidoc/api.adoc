@@ -8,6 +8,7 @@
 :operation-http-request-title: Http 请求
 :operation-request-parameters-title: 请求参数说明
 :operation-request-fields-title: 请求参数说明
+:operation-path-parameters-title:请求参数说明
 :operation-http-response-title: Http 响应
 :operation-response-fields-title: Http 响应字段说明
 
@@ -54,7 +55,7 @@ operation::user/v1/list[snippets='http-request,request-parameters,http-response,
 
 
 ===== 3.1.2.1、v1
-operation::user/v1/get[]
+operation::user/v1/get[snippets='http-request,path-parameters,http-response,response-fields']
 
 
 [[resources-restful-user-add]]
