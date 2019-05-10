@@ -1,18 +1,11 @@
 |===
-|Name|Required |Type|Description|Constraint
+|Name|Required|Type|Description|Constraint
 
 {{#parameters}}
     |{{name}}
-    |{{#optional}}
-        true
-    {{/optional}}
-    {{^optional}}
-        false
-    {{/optional}}
+    |{{#optional}}false{{/optional}}{{^optional}}true{{/optional}}
     |String
     |{{description}}
-    |{{#constraints}}
-        {{constraints}}
-    {{/constraints}}
+    |{{#constraints}}{{constraints}}{{/constraints}}
 {{/parameters}}
 |===
