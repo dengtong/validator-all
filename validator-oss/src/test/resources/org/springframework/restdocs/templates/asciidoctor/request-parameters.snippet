@@ -1,9 +1,18 @@
 |===
-|Parameter|Description|optional
+|Name|Required |Type|Description|Constraint
 
 {{#parameters}}
-|{{#tableCellContent}}`+{{name}}+`{{/tableCellContent}}
-|{{#tableCellContent}}{{description}}{{/tableCellContent}}
-|{{#tableCellContent}}{{optional}}{{/tableCellContent}}
+    |{{name}}
+    |{{#optional}}
+        true
+    {{/optional}}
+    {{^optional}}
+        false
+    {{/optional}}
+    |String
+    |{{description}}
+    |{{#constraints}}
+        {{constraints}}
+    {{/constraints}}
 {{/parameters}}
 |===

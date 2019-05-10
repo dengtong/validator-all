@@ -35,20 +35,20 @@ public class UserApiV1Test extends ValidatorOssApplicationTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(123456))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.nickName").value("cat"))
-                .andDo(MockMvcRestDocumentation.document("user/v1/get", UserSnippetV1.getRequest()));
+                .andDo(MockMvcRestDocumentation.document("user/v1/get", UserSnippetV1.getRequest(), UserSnippetV1.getResponse()));
     }
 
-//    @Test
-//    public void create() throws Exception {
-//
-//        String content = "{\"phone\":\"18501995564\"}";
-//        mockMvc.perform(RestDocumentationRequestBuilders.post("/user/v1")
-//                .content(content)
-//                .contentType(MediaType.APPLICATION_JSON_UTF8)
-//                .accept(MediaType.APPLICATION_JSON))
-//                .andExpect(MockMvcResultMatchers.status().isCreated())
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.phone").value("18501995564"))
-//                .andDo(MockMvcRestDocumentation.document("user/v1/create", UserSnippetV1.createRequest(), UserSnippetV1.createResponse()));
-//    }
+    @Test
+    public void create() throws Exception {
+
+        String content = "{\"phone\":\"18501995564\"}";
+        mockMvc.perform(RestDocumentationRequestBuilders.post("/user/v1")
+                .content(content)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.phone").value("18501995564"))
+                .andDo(MockMvcRestDocumentation.document("user/v1/create", UserSnippetV1.createRequest(), UserSnippetV1.createResponse()));
+    }
 }
 
