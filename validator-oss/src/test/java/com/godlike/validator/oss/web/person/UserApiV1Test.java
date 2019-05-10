@@ -50,5 +50,28 @@ public class UserApiV1Test extends ValidatorOssApplicationTests {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.phone").value("18501995564"))
                 .andDo(MockMvcRestDocumentation.document("user/v1/create", UserSnippetV1.createRequest(), UserSnippetV1.createResponse()));
     }
+
+    @Test
+    public void update() throws Exception {
+
+        String content = "{\"phone\":\"18501995564\"}";
+        mockMvc.perform(RestDocumentationRequestBuilders.put("/user/v1/{id}", 123456)
+                .content(content)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.phone").value("18501995564"))
+                .andDo(MockMvcRestDocumentation.document("user/v1/update", UserSnippetV1.updateRequestPathParameters(), UserSnippetV1.updateRequestFields(), UserSnippetV1.updateResponse()));
+    }
+
+    @Test
+    public void delete() throws Exception {
+
+        mockMvc.perform(RestDocumentationRequestBuilders.delete("/user/v1/{id}", 123456)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isNoContent())
+                .andDo(MockMvcRestDocumentation.document("user/v1/delete", UserSnippetV1.deleteRequest()));
+    }
 }
 

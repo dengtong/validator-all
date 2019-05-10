@@ -40,7 +40,6 @@ public class UserVoV1 {
     private String idNumber;
     private String wxNumber;
     private String password;
-    @NotBlank(message = "id不能为空", groups = {UpdateGroup.class})
     @JsonView({ListView.class})
     private String id;
     @JsonView({ListView.class})
