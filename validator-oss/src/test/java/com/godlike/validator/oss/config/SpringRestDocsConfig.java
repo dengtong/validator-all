@@ -10,7 +10,8 @@ import org.springframework.restdocs.templates.TemplateFormats;
 public class SpringRestDocsConfig implements RestDocsMockMvcConfigurationCustomizer {
     @Override
     public void customize(MockMvcRestDocumentationConfigurer configurer) {
-        configurer.uris().withScheme("https").withHost("example.com").withPort(443);
+//        该处配置的uri属性会被@AutoConfigureRestDocs的配置覆盖，因此uri属性必须在@AutoConfigureRestDocs上进行配置
+//        configurer.uris().withScheme("https").withHost("example.com").withPort(443);
         configurer.operationPreprocessors().withRequestDefaults(Preprocessors.prettyPrint()).withResponseDefaults(Preprocessors.prettyPrint());
         configurer.snippets().withTemplateFormat(TemplateFormats.asciidoctor()).withEncoding("UTF-8");
     }

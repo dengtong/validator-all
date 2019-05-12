@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 @Import(SpringRestDocsConfig.class)
 @AutoConfigureMockMvc
-@AutoConfigureRestDocs
+@AutoConfigureRestDocs(uriScheme = "https", uriHost = "api.godlike.com", uriPort = 443)
 public class ValidatorOssApplicationTests {
 
     @Test
