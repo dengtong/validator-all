@@ -17,8 +17,9 @@ public class UserApiV1Test extends ValidatorOssApplicationTests {
 
     @Test
     public void list() throws Exception {
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/user/v1")
+        mockMvc.perform(RestDocumentationRequestBuilders.get(getUrlTemplate("/user/v1"))
                 .param("phone", "18501995564")
+                .contextPath(getContextPath())
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(1))
@@ -30,7 +31,8 @@ public class UserApiV1Test extends ValidatorOssApplicationTests {
 
     @Test
     public void get() throws Exception {
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/user/v1/{id}", 123456)
+        mockMvc.perform(RestDocumentationRequestBuilders.get(getUrlTemplate("/user/v1/{id}"), 123456)
+                .contextPath(getContextPath())
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(123456))
@@ -42,8 +44,9 @@ public class UserApiV1Test extends ValidatorOssApplicationTests {
     public void create() throws Exception {
 
         String content = "{\"phone\":\"18501995564\"}";
-        mockMvc.perform(RestDocumentationRequestBuilders.post("/user/v1")
+        mockMvc.perform(RestDocumentationRequestBuilders.post(getUrlTemplate("/user/v1"))
                 .content(content)
+                .contextPath(getContextPath())
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
@@ -55,8 +58,9 @@ public class UserApiV1Test extends ValidatorOssApplicationTests {
     public void update() throws Exception {
 
         String content = "{\"phone\":\"18501995564\"}";
-        mockMvc.perform(RestDocumentationRequestBuilders.put("/user/v1/{id}", 123456)
+        mockMvc.perform(RestDocumentationRequestBuilders.put(getUrlTemplate("/user/v1/{id}"), 123456)
                 .content(content)
+                .contextPath(getContextPath())
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -67,7 +71,8 @@ public class UserApiV1Test extends ValidatorOssApplicationTests {
     @Test
     public void delete() throws Exception {
 
-        mockMvc.perform(RestDocumentationRequestBuilders.delete("/user/v1/{id}", 123456)
+        mockMvc.perform(RestDocumentationRequestBuilders.delete("/validator-oss/user/v1/{id}", 123456)
+                .contextPath(getContextPath())
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isNoContent())

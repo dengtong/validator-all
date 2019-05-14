@@ -1,5 +1,6 @@
 package com.godlike.validator.oss.validator;
 
+import com.godlike.validator.oss.validator.constraints.Phone;
 import org.springframework.util.StringUtils;
 
 import javax.validation.ConstraintValidator;

@@ -17,8 +17,9 @@ public class UserApiV2Test extends ValidatorOssApplicationTests {
 
     @Test
     public void list() throws Exception {
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/user/v2")
+        mockMvc.perform(RestDocumentationRequestBuilders.get(getUrlTemplate("/user/v2"))
                 .param("phone", "18501995564").param("sex", "男")
+                .contextPath(getContextPath())
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(1))

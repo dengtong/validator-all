@@ -15,6 +15,6 @@ public class ConstrainedParameters {
 
     public ParameterDescriptor parameterWithName(String name) {
         return RequestDocumentation.parameterWithName(name).attributes(Attributes.key("constraints").value(StringUtils
-                .collectionToDelimitedString(this.constraintDescriptions.descriptionsForProperty(name), ". ")));
+                .collectionToDelimitedString(this.constraintDescriptions.descriptionsForProperty(name), "; ")));
     }
 }

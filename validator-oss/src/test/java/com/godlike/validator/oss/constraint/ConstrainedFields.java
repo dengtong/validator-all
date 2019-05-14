@@ -16,6 +16,6 @@ public class ConstrainedFields {
     public FieldDescriptor fieldWithPath(String path) {
         return PayloadDocumentation.fieldWithPath(path).attributes(Attributes.key("constraints").value(StringUtils
                 .collectionToDelimitedString(this.constraintDescriptions
-                        .descriptionsForProperty(path), ". ")));
+                        .descriptionsForProperty(path), "; ")));
     }
 }

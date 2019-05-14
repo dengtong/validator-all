@@ -1,8 +1,10 @@
 package com.godlike.validator.oss.vo.person;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.godlike.validator.oss.validator.Phone;
+import com.godlike.validator.oss.validator.constraints.Phone;
 import lombok.Data;
+import org.hibernate.validator.constraints.CodePointLength;
+import org.hibernate.validator.constraints.EAN;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
@@ -13,6 +15,7 @@ import java.util.Date;
 @Data
 public class UserVoV1 {
     @JsonView({GetView.class})
+    @CodePointLength
     private String nickName;
     @JsonView({GetView.class})
     private String profilePhoto;

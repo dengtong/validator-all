@@ -1,4 +1,6 @@
-package com.godlike.validator.oss.validator;
+package com.godlike.validator.oss.validator.constraints;
+
+import com.godlike.validator.oss.validator.PhoneValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

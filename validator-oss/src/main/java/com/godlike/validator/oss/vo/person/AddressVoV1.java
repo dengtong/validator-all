@@ -1,6 +1,6 @@
 package com.godlike.validator.oss.vo.person;
 
-import com.godlike.validator.oss.validator.Phone;
+import com.godlike.validator.oss.validator.constraints.Phone;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
