@@ -4,7 +4,6 @@ import com.godlike.validator.oss.config.SpringRestDocsConfig;
 import com.godlike.validator.oss.constant.Constant;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,8 +18,6 @@ import org.springframework.util.StringUtils;
 @AutoConfigureMockMvc
 @AutoConfigureRestDocs(uriScheme = "https", uriHost = "api.godlike.com", uriPort = 443)
 public class ValidatorOssApplicationTests {
-
-    //可以使用Mockito进行mock操作
     @Test
     public void contextLoads() {
     }
