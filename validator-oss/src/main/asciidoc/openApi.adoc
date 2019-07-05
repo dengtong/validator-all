@@ -1,0 +1,72 @@
+= *文档*
+:toc: left
+:toclevels: 4
+:toc-title: 目  录
+:doctype: book
+:source-highlighter: highlightjs
+:icons: font
+:operation-http-request-title: Http 请求
+:operation-request-parameters-title: 请求参数说明
+:operation-request-fields-title: 请求参数说明
+:operation-path-parameters-title: 请求参数说明
+:operation-http-response-title: Http 响应
+:operation-response-fields-title: Http 响应字段说明
+
+[[overview]]
+== 1、概要
+本文为API说明文档。
+
+API 遵守 RESTFul 风格
+
+API的说明包括：请求方式、请求地址、请求参数说明和响应消息等。
+
+[[overview-response]]
+== 2、通用说明
+
+*状态码说明*
+
+|===
+| http状态码 | 简介
+
+| 400
+| 请求参数有误
+
+| 401
+| 用户验证不通过
+
+| 403
+| 资源权限校验不通过（用户校验通过，url没有权限）
+
+| 404
+| 资源未发现
+
+| 405
+| http方法权限校验不通过（用户校验通过，url权限校验通过，操作权限（put,delete）校验不通过）
+
+| 500
+| 服务器内部出错
+
+|===
+
+*名词解释*
+
+|===
+| 名词 | 简介
+
+| 可空
+| 返回值可以是null
+
+| ......
+| ......
+
+
+|===
+
+== 3、API
+
+=== 3.1、用户
+
+==== 3.1.1、列表
+
+===== 3.1.1.1、v1
+operation::user/v1/list[snippets='http-request,request-parameters,http-response,response-fields']

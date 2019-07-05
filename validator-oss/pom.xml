@@ -94,6 +94,8 @@
                         <configuration>
                             <backend>html5</backend>
                             <doctype>book</doctype>
+                            <sourceDirectory>src/main/asciidoc</sourceDirectory>
+                            <sourceDocumentName>api.adoc</sourceDocumentName>
                         </configuration>
                     </execution>
                 </executions>
