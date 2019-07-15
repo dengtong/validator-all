@@ -12,4 +12,9 @@ public class InternalServerErrorException extends Exception {
         super(message, cause);
         this.code = code;
     }
+
+    public InternalServerErrorException(String message, String code) {
+        super(message);
+        this.code = code;
+    }
 }
