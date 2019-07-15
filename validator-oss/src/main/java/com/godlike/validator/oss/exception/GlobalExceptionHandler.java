@@ -127,7 +127,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponseBody defaultErrorHandler(Exception exception) {
         printLog(exception);
-        return new ErrorResponseBody("未知错误", "590000");
+        return new ErrorResponseBody(exception.getMessage(), "590000");
     }
 
     private void printLog(Throwable throwable) {
