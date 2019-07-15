@@ -1,6 +1,7 @@
 package com.godlike.validator.oss.web.person;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.godlike.validator.oss.exception.InternalServerErrorException;
 import com.godlike.validator.oss.service.person.UserServiceV1;
 import com.godlike.validator.oss.vo.person.UserQueryV1;
 import com.godlike.validator.oss.vo.person.UserVoV1;
@@ -25,7 +26,7 @@ public class UserApiV1 {
     @GetMapping
     @JsonView({UserVoV1.ListView.class})
     @ResponseStatus(HttpStatus.OK)
-    public List<UserVoV1> list(@Valid UserQueryV1 userQuery, @PageableDefault Pageable pageable) {
+    public List<UserVoV1> list(@Valid UserQueryV1 userQuery, @PageableDefault Pageable pageable) throws InternalServerErrorException {
         return userServiceV1.list(userQuery);
     }
 

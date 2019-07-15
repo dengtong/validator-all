@@ -8,9 +8,8 @@ import lombok.ToString;
 public class InternalServerErrorException extends Exception {
     private String code;
 
-    public InternalServerErrorException(String message, String code) {
-        super(message);
+    public InternalServerErrorException(String message, Throwable cause, String code) {
+        super(message, cause);
         this.code = code;
     }
-
 }

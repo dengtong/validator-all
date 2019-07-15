@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import org.mockito.stubbing.Answer;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
@@ -19,13 +20,13 @@ import javax.annotation.Resource;
 public class UserApiV1Test extends ValidatorOssApplicationTests {
     @Resource
     private MockMvc mockMvc;
-    @MockBean
+    @SpyBean
     private UserServiceV1 userServiceV1;
 
     @Test
     public void list() throws Exception {
         mockMvc.perform(RestDocumentationRequestBuilders.get(getUrlTemplate("/user/v1"))
-                .param("phone", "1850199556")
+                .param("phone", "18501995564")
                 .contextPath(getContextPath())
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
