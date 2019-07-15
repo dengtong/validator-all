@@ -6,5 +6,7 @@ import lombok.NonNull;
 @Data
 public class ErrorResponseBody {
     @NonNull
-    private String error;
+    private String errorMessage;
+    @NonNull
+    private String errorCode;
 }

@@ -3,9 +3,8 @@ package com.godlike.validator.oss.exception;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.MethodNotAllowedException;
@@ -21,15 +20,27 @@ public class GlobalExceptionHandler {
      * @param exception
      * @return
      */
-    @ExceptionHandler(value = MethodArgumentNotValidException.class)
+    @ExceptionHandler(value = BindException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponseBody MethodArgumentNotValidHandler(MethodArgumentNotValidException exception) {
+    public ErrorResponseBody MethodArgumentNotValidHandler(BindException exception) {
         printLog(exception);
-        StringBuffer errorSB = new StringBuffer();
+        StringBuffer errorMessage = new StringBuffer();
+        StringBuffer errorCode = new StringBuffer();
         if (exception.getBindingResult().hasErrors()) {
-            exception.getBindingResult().getAllErrors().forEach(error -> errorSB.append(error.getDefaultMessage()));
+            exception.getBindingResult().getAllErrors().forEach(error -> {
+                String errorBody = error.getDefaultMessage();
+                int errorCodeStartIndex = errorBody.lastIndexOf("@");
+                if (errorCodeStartIndex > 0) {
+                    errorMessage.append(errorBody, 0, errorCodeStartIndex);
+                    if (errorCodeStartIndex != errorBody.length() - 1) {
+                        errorCode.append(errorBody, errorCodeStartIndex + 1, errorBody.length());
+                    }
+                } else {
+                    errorMessage.append(errorBody);
+                }
+            });
         }
-        return new ErrorResponseBody(errorSB.toString());
+        return new ErrorResponseBody(errorMessage.toString(), errorCode.toString());
     }
 
 
@@ -43,7 +54,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ErrorResponseBody unauthorizedExceptionHandler(UnauthorizedException exception) {
         printLog(exception);
-        return new ErrorResponseBody("无效用户");
+        return new ErrorResponseBody(exception.getMessage(), exception.getCode());
     }
 
     /**
@@ -56,7 +67,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ErrorResponseBody forbiddenExceptionHandler(ForbiddenException exception) {
         printLog(exception);
-        return new ErrorResponseBody("不具有访问资源所需的权限");
+        return new ErrorResponseBody(exception.getMessage(), exception.getCode());
     }
 
     /**
@@ -69,7 +80,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorResponseBody noHandlerFoundExceptionHandler(NoHandlerFoundException exception) {
         printLog(exception);
-        return new ErrorResponseBody("路径错误");
+        return new ErrorResponseBody(exception.getMessage(), "404000");
     }
 
     /**
@@ -82,11 +93,24 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     public ErrorResponseBody methodNotAllowedExceptionHandler(MethodNotAllowedException exception) {
         printLog(exception);
-        return new ErrorResponseBody("不具有http方法权限");
+        return new ErrorResponseBody(exception.getMessage(), "405000");
     }
 
     /**
-     * 服务器内部错误
+     * 服务器内部错误(自定义错误码，可用580000以下的)
+     *
+     * @param exception
+     * @return
+     */
+    @ExceptionHandler(value = InternalServerErrorException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ErrorResponseBody exceptionHandler(InternalServerErrorException exception) {
+        printLog(exception);
+        return new ErrorResponseBody(exception.getMessage(), exception.getCode());
+    }
+
+    /**
+     * 服务器内部错误（未知的运行时错误）
      *
      * @param exception
      * @return
@@ -95,15 +119,15 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponseBody exceptionHandler(RuntimeException exception) {
         printLog(exception);
-        return new ErrorResponseBody("服务器（代码）发生错误");
+        return new ErrorResponseBody(exception.getMessage(), "580000");
     }
 
 
     @ExceptionHandler(value = Exception.class)
-    @ResponseBody
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponseBody defaultErrorHandler(Exception exception) {
         printLog(exception);
-        return new ErrorResponseBody("未知错误");
+        return new ErrorResponseBody("未知错误", "590000");
     }
 
     private void printLog(Throwable throwable) {

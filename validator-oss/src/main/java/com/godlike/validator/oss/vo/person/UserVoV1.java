@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.godlike.validator.oss.validator.constraints.Phone;
 import lombok.Data;
 import org.hibernate.validator.constraints.CodePointLength;
-import org.hibernate.validator.constraints.EAN;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Email;

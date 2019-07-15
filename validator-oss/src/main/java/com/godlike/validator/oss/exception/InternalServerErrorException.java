@@ -5,11 +5,12 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class ForbiddenException extends Exception {
+public class InternalServerErrorException extends Exception {
     private String code;
 
-    public ForbiddenException(String message, String code) {
+    public InternalServerErrorException(String message, String code) {
         super(message);
         this.code = code;
     }
+
 }
