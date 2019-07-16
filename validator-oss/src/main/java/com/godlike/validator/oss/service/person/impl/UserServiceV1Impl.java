@@ -28,12 +28,12 @@ public class UserServiceV1Impl implements UserServiceV1 {
         userVo.setProfilePhoto("image");
         List<UserVoV1> userVoList = new ArrayList<>();
         userVoList.add(userVo);
-        try {
-            long a = Long.valueOf("abc");
-        } catch (Exception e) {
-            LOGGER.error("{}", e.getStackTrace());
-            throw new InternalServerErrorException("转换错误", e.getCause(), "500001");
-        }
+//        try {
+//            long a = Long.valueOf("abc");
+//        } catch (Exception e) {
+//            LOGGER.error("{}", e.getStackTrace());
+//            throw new InternalServerErrorException("转换错误", e.getCause(), "500001");
+//        }
 
         return userVoList;
     }
