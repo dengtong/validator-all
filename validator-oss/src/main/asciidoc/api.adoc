@@ -22,6 +22,29 @@ API的说明包括：请求方式、请求地址、请求参数说明和响应�
 
 [[overview-response]]
 == 2、通用说明
+*环境配置说明*
+
+|===
+| 环境 | 协议 | 域名 | 端口 | 路径
+
+| 测试
+| https
+| test-api.godlike.com
+| 443
+| /validator-oss
+
+| 仿真
+| https
+| pre-api.godlike.com
+| 443
+| /validator-oss
+
+| 生产
+| https
+| api.godlike.com
+| 443
+| /validator-oss
+|===
 
 *状态码说明*
 
