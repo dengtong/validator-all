@@ -86,7 +86,7 @@
                 <version>1.5.3</version>
                 <executions>
                     <execution>
-                        <id>generate-docs</id>
+                        <id>generate-api-docs</id>
                         <phase>prepare-package</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
@@ -96,6 +96,19 @@
                             <doctype>book</doctype>
                             <sourceDirectory>src/main/asciidoc</sourceDirectory>
                             <sourceDocumentName>api.adoc</sourceDocumentName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-openApi-docs</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html5</backend>
+                            <doctype>book</doctype>
+                            <sourceDirectory>src/main/asciidoc</sourceDirectory>
+                            <sourceDocumentName>openApi.adoc</sourceDocumentName>
                         </configuration>
                     </execution>
                 </executions>
