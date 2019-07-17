@@ -5,12 +5,15 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class UnauthorizedException extends Exception {
+public class UnauthorizedException extends Throwable {
     private String code;
+    private String message;
+    private Exception rawException;
 
-    public UnauthorizedException(String message, String code) {
-        super(message);
+    public UnauthorizedException(String message, Exception rawException, String code) {
+        this.message = message;
         this.code = code;
+        this.rawException = rawException;
     }
 
 }

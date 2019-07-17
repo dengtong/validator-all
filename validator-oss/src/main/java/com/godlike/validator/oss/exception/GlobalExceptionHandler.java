@@ -53,7 +53,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = UnauthorizedException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ErrorResponseBody unauthorizedExceptionHandler(UnauthorizedException exception) {
-        printLog(exception);
+        printLog(exception.getRawException());
         return new ErrorResponseBody(exception.getMessage(), exception.getCode());
     }
 
@@ -66,7 +66,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = ForbiddenException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ErrorResponseBody forbiddenExceptionHandler(ForbiddenException exception) {
-        printLog(exception);
+        printLog(exception.getRawException());
         return new ErrorResponseBody(exception.getMessage(), exception.getCode());
     }
 
