@@ -5,16 +5,15 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class InternalServerErrorException extends Exception {
+public class InternalServerErrorException extends Throwable {
     private String code;
+    private String message;
+    private Exception rawException;
 
-    public InternalServerErrorException(String message, Throwable cause, String code) {
-        super(message, cause);
+    public InternalServerErrorException(String message, Exception rawException, String code) {
+        this.message = message;
         this.code = code;
+        this.rawException = rawException;
     }
 
-    public InternalServerErrorException(String message, String code) {
-        super(message);
-        this.code = code;
-    }
 }

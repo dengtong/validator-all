@@ -105,7 +105,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = InternalServerErrorException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponseBody exceptionHandler(InternalServerErrorException exception) {
-        printLog(exception);
+        printLog(exception.getRawException());
         return new ErrorResponseBody(exception.getMessage(), exception.getCode());
     }
 
