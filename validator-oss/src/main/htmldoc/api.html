@@ -426,32 +426,32 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#overview">1、概要</a></li>
 <li><a href="#overview-response">2、通用说明</a></li>
-<li><a href="#resources-restful">3、API</a>
+<li><a href="#_3_api">3、API</a>
 <ul class="sectlevel2">
-<li><a href="#resources-restful-user">3.1、用户</a>
+<li><a href="#_3_1_用户">3.1、用户</a>
 <ul class="sectlevel3">
-<li><a href="#resources-restful-user-list">3.1.1、列表</a>
+<li><a href="#_3_1_1_列表">3.1.1、列表</a>
 <ul class="sectlevel4">
 <li><a href="#_3_1_1_1_v1">3.1.1.1、v1</a></li>
 <li><a href="#_3_1_1_2_v2">3.1.1.2、v2</a></li>
 </ul>
 </li>
-<li><a href="#resources-restful-user-detail">3.1.2、详情</a>
+<li><a href="#_3_1_2_详情">3.1.2、详情</a>
 <ul class="sectlevel4">
 <li><a href="#_3_1_2_1_v1">3.1.2.1、v1</a></li>
 </ul>
 </li>
-<li><a href="#resources-restful-user-add">3.1.3、添加</a>
+<li><a href="#_3_1_3_添加">3.1.3、添加</a>
 <ul class="sectlevel4">
 <li><a href="#_3_1_3_1_v1">3.1.3.1、v1</a></li>
 </ul>
 </li>
-<li><a href="#resources-restful-user-update">3.1.4、更新</a>
+<li><a href="#_3_1_4_更新">3.1.4、更新</a>
 <ul class="sectlevel4">
 <li><a href="#_3_1_4_1_v1">3.1.4.1、v1</a></li>
 </ul>
 </li>
-<li><a href="#resources-restful-user-delete">3.1.5、删除</a>
+<li><a href="#_3_1_5_删除">3.1.5、删除</a>
 <ul class="sectlevel4">
 <li><a href="#_3_1_5_1_v1">3.1.5.1、v1</a></li>
 </ul>
@@ -482,7 +482,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="overview-response">2、通用说明</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>错误响应消息说明</strong></p>
+<p><strong>环境配置说明</strong></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -494,39 +494,112 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </colgroup>
 <thead>
 <tr>
+<th class="tableblock halign-left valign-top">环境</th>
+<th class="tableblock halign-left valign-top">协议</th>
+<th class="tableblock halign-left valign-top">域名</th>
+<th class="tableblock halign-left valign-top">端口</th>
+<th class="tableblock halign-left valign-top">路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">测试</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test-api.godlike.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/validator-oss</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">仿真</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pre-api.godlike.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/validator-oss</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">生产</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">api.godlike.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/validator-oss</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>状态码说明</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
 <th class="tableblock halign-left valign-top">http状态码</th>
-<th class="tableblock halign-left valign-top">名称</th>
-<th class="tableblock halign-left valign-top">类型</th>
-<th class="tableblock halign-left valign-top">值</th>
 <th class="tableblock halign-left valign-top">简介</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">error</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">XXXX不能为空等提示消息</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">参数校验不通过</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">请求参数有误</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">401</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">error</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">无效用户</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">参数校验不通过</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">用户验证不通过</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">403</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">资源权限校验不通过（用户校验通过，url没有权限）</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">资源未发现</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">405</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">http方法权限校验不通过（用户校验通过，url权限校验通过，操作权限（put,delete）校验不通过）</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">服务器内部出错</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>名词解释</strong></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">名词</th>
+<th class="tableblock halign-left valign-top">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">可空</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">返回值可以是null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;&#8230;&#8203;</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="resources-restful">3、API</h2>
+<h2 id="_3_api">3、API</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="resources-restful-user">3.1、用户</h3>
+<h3 id="_3_1_用户">3.1、用户</h3>
 <div class="sect3">
-<h4 id="resources-restful-user-list">3.1.1、列表</h4>
+<h4 id="_3_1_1_列表">3.1.1、列表</h4>
 <div class="sect4">
 <h5 id="_3_1_1_1_v1">3.1.1.1、v1</h5>
 <div class="sect5">
@@ -534,8 +607,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /validator-oss/user/v1?phone=18501995564 HTTP/1.1
-Accept: application/json
-Host: api.godlike.com</code></pre>
+    Accept: application/json
+    Host: api.godlike.com</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_3_1_1_1_v1_http_response">Http 响应</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 136
+
+[ {
+  "phone" : "18501995564",
+  "name" : "tom",
+  "idNumber" : "162747189504150445",
+  "id" : "123456789",
+  "delete" : false
+} ]</code></pre>
 </div>
 </div>
 </div>
@@ -570,24 +661,6 @@ Host: api.godlike.com</code></pre>
 </table>
 </div>
 <div class="sect5">
-<h6 id="_3_1_1_1_v1_http_response">Http 响应</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 136
-
-[ {
-  "phone" : "18501995564",
-  "name" : "tom",
-  "idNumber" : "162747189504150445",
-  "id" : "123456789",
-  "delete" : false
-} ]</code></pre>
-</div>
-</div>
-</div>
-<div class="sect5">
 <h6 id="_3_1_1_1_v1_response_fields">Http 响应字段说明</h6>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -599,7 +672,7 @@ Content-Length: 136
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">名称</th>
-<th class="tableblock halign-left valign-top">必选</th>
+<th class="tableblock halign-left valign-top">可空</th>
 <th class="tableblock halign-left valign-top">类型</th>
 <th class="tableblock halign-left valign-top">简介</th>
 </tr>
@@ -652,8 +725,26 @@ Content-Length: 136
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /validator-oss/user/v1?phone=18501995564 HTTP/1.1
-Accept: application/json
-Host: api.godlike.com</code></pre>
+    Accept: application/json
+    Host: api.godlike.com</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_3_1_1_2_v2_http_response">Http 响应</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 136
+
+[ {
+  "phone" : "18501995564",
+  "name" : "tom",
+  "idNumber" : "162747189504150445",
+  "id" : "123456789",
+  "delete" : false
+} ]</code></pre>
 </div>
 </div>
 </div>
@@ -688,24 +779,6 @@ Host: api.godlike.com</code></pre>
 </table>
 </div>
 <div class="sect5">
-<h6 id="_3_1_1_2_v2_http_response">Http 响应</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 136
-
-[ {
-  "phone" : "18501995564",
-  "name" : "tom",
-  "idNumber" : "162747189504150445",
-  "id" : "123456789",
-  "delete" : false
-} ]</code></pre>
-</div>
-</div>
-</div>
-<div class="sect5">
 <h6 id="_3_1_1_2_v2_response_fields">Http 响应字段说明</h6>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -717,7 +790,7 @@ Content-Length: 136
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">名称</th>
-<th class="tableblock halign-left valign-top">必选</th>
+<th class="tableblock halign-left valign-top">可空</th>
 <th class="tableblock halign-left valign-top">类型</th>
 <th class="tableblock halign-left valign-top">简介</th>
 </tr>
@@ -765,7 +838,7 @@ Content-Length: 136
 </div>
 </div>
 <div class="sect3">
-<h4 id="resources-restful-user-detail">3.1.2、详情</h4>
+<h4 id="_3_1_2_详情">3.1.2、详情</h4>
 <div class="sect4">
 <h5 id="_3_1_2_1_v1">3.1.2.1、v1</h5>
 <div class="sect5">
@@ -773,8 +846,29 @@ Content-Length: 136
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /validator-oss/user/v1/123456 HTTP/1.1
-Accept: application/json
-Host: api.godlike.com</code></pre>
+    Accept: application/json
+    Host: api.godlike.com</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_3_1_2_1_v1_http_response">Http 响应</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 199
+
+{
+  "nickName" : "cat",
+  "profilePhoto" : "image",
+  "sex" : "man",
+  "phone" : "18511223366",
+  "name" : "tom",
+  "idNumber" : "162747189504150445",
+  "id" : "123456",
+  "delete" : false
+}</code></pre>
 </div>
 </div>
 </div>
@@ -810,27 +904,6 @@ Host: api.godlike.com</code></pre>
 </table>
 </div>
 <div class="sect5">
-<h6 id="_3_1_2_1_v1_http_response">Http 响应</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 199
-
-{
-  "nickName" : "cat",
-  "profilePhoto" : "image",
-  "sex" : "man",
-  "phone" : "18511223366",
-  "name" : "tom",
-  "idNumber" : "162747189504150445",
-  "id" : "123456",
-  "delete" : false
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect5">
 <h6 id="_3_1_2_1_v1_response_fields">Http 响应字段说明</h6>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -842,7 +915,7 @@ Content-Length: 199
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">名称</th>
-<th class="tableblock halign-left valign-top">必选</th>
+<th class="tableblock halign-left valign-top">可空</th>
 <th class="tableblock halign-left valign-top">类型</th>
 <th class="tableblock halign-left valign-top">简介</th>
 </tr>
@@ -980,7 +1053,7 @@ Content-Length: 199
 </div>
 </div>
 <div class="sect3">
-<h4 id="resources-restful-user-add">3.1.3、添加</h4>
+<h4 id="_3_1_3_添加">3.1.3、添加</h4>
 <div class="sect4">
 <h5 id="_3_1_3_1_v1">3.1.3.1、v1</h5>
 <div class="sect5">
@@ -988,13 +1061,28 @@ Content-Length: 199
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /validator-oss/user/v1 HTTP/1.1
-Accept: application/json
-Content-Length: 31
-Content-Type: application/json;charset=UTF-8
-Host: api.godlike.com
+    Accept: application/json
+    Content-Length: 31
+    Content-Type: application/json;charset=UTF-8
+    Host: api.godlike.com
 
 {
   "phone" : "18501995564"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_3_1_3_1_v1_http_response">Http 响应</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
+Content-Length: 52
+Content-Type: application/json;charset=UTF-8
+
+{
+  "phone" : "18501995564",
+  "delete" : false
 }</code></pre>
 </div>
 </div>
@@ -1037,40 +1125,6 @@ Host: api.godlike.com
 </table>
 </div>
 <div class="sect5">
-<h6 id="_3_1_3_1_v1_http_response">Http 响应</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
-Content-Type: application/json;charset=UTF-8
-Content-Length: 477
-
-{
-  "nickName" : null,
-  "profilePhoto" : null,
-  "sex" : null,
-  "politicalStatus" : null,
-  "birthPlace" : null,
-  "residence" : null,
-  "industry" : null,
-  "email" : null,
-  "phone" : "18501995564",
-  "company" : null,
-  "department" : null,
-  "employeeNumber" : null,
-  "studentNumber" : null,
-  "address" : null,
-  "name" : null,
-  "idNumber" : null,
-  "wxNumber" : null,
-  "password" : null,
-  "id" : null,
-  "delete" : false,
-  "birthday" : null
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect5">
 <h6 id="_3_1_3_1_v1_response_fields">Http 响应字段说明</h6>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1082,7 +1136,7 @@ Content-Length: 477
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">名称</th>
-<th class="tableblock halign-left valign-top">必选</th>
+<th class="tableblock halign-left valign-top">可空</th>
 <th class="tableblock halign-left valign-top">类型</th>
 <th class="tableblock halign-left valign-top">简介</th>
 </tr>
@@ -1220,7 +1274,7 @@ Content-Length: 477
 </div>
 </div>
 <div class="sect3">
-<h4 id="resources-restful-user-update">3.1.4、更新</h4>
+<h4 id="_3_1_4_更新">3.1.4、更新</h4>
 <div class="sect4">
 <h5 id="_3_1_4_1_v1">3.1.4.1、v1</h5>
 <div class="sect5">
@@ -1228,13 +1282,28 @@ Content-Length: 477
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /validator-oss/user/v1/123456 HTTP/1.1
-Accept: application/json
-Content-Length: 31
-Content-Type: application/json;charset=UTF-8
-Host: api.godlike.com
+    Accept: application/json
+    Content-Length: 31
+    Content-Type: application/json;charset=UTF-8
+    Host: api.godlike.com
 
 {
   "phone" : "18501995564"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_3_1_4_1_v1_http_response">Http 响应</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Length: 52
+Content-Type: application/json;charset=UTF-8
+
+{
+  "phone" : "18501995564",
+  "delete" : false
 }</code></pre>
 </div>
 </div>
@@ -1308,40 +1377,6 @@ Host: api.godlike.com
 </table>
 </div>
 <div class="sect5">
-<h6 id="_3_1_4_1_v1_http_response">Http 响应</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 477
-
-{
-  "nickName" : null,
-  "profilePhoto" : null,
-  "sex" : null,
-  "politicalStatus" : null,
-  "birthPlace" : null,
-  "residence" : null,
-  "industry" : null,
-  "email" : null,
-  "phone" : "18501995564",
-  "company" : null,
-  "department" : null,
-  "employeeNumber" : null,
-  "studentNumber" : null,
-  "address" : null,
-  "name" : null,
-  "idNumber" : null,
-  "wxNumber" : null,
-  "password" : null,
-  "id" : null,
-  "delete" : false,
-  "birthday" : null
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect5">
 <h6 id="_3_1_4_1_v1_response_fields">Http 响应字段说明</h6>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1353,7 +1388,7 @@ Content-Length: 477
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">名称</th>
-<th class="tableblock halign-left valign-top">必选</th>
+<th class="tableblock halign-left valign-top">可空</th>
 <th class="tableblock halign-left valign-top">类型</th>
 <th class="tableblock halign-left valign-top">简介</th>
 </tr>
@@ -1491,7 +1526,7 @@ Content-Length: 477
 </div>
 </div>
 <div class="sect3">
-<h4 id="resources-restful-user-delete">3.1.5、删除</h4>
+<h4 id="_3_1_5_删除">3.1.5、删除</h4>
 <div class="sect4">
 <h5 id="_3_1_5_1_v1">3.1.5.1、v1</h5>
 <div class="sect5">
@@ -1499,9 +1534,17 @@ Content-Length: 477
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /validator-oss/user/v1/123456 HTTP/1.1
-Accept: application/json
-Content-Type: application/json;charset=UTF-8
-Host: api.godlike.com</code></pre>
+    Accept: application/json
+    Content-Type: application/json;charset=UTF-8
+    Host: api.godlike.com</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_3_1_5_1_v1_http_response">Http 响应</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 204 No Content</code></pre>
 </div>
 </div>
 </div>
@@ -1536,14 +1579,6 @@ Host: api.godlike.com</code></pre>
 </tbody>
 </table>
 </div>
-<div class="sect5">
-<h6 id="_3_1_5_1_v1_http_response">Http 响应</h6>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 204 No Content</code></pre>
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1552,7 +1587,7 @@ Host: api.godlike.com</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-05-12 22:28:41 CST
+Last updated 2019-08-05 23:08:19 CST
 </div>
 </div>
 </body>

@@ -1,10 +1,8 @@
 [source,http,options="nowrap"]
 ----
-Method: {{method}}
-Path: {{path}}
+{{method}} {{path}} HTTP/1.1
 {{#headers}}
-{{name}}: {{value}}
+    {{name}}: {{value}}
 {{/headers}}
-Scheme: {{scheme}}
 {{requestBody}}
 ----
