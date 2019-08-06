@@ -5,11 +5,12 @@
 :doctype: book
 :source-highlighter: highlightjs
 :icons: font
-:operation-http-request-title: Http 请求
-:operation-request-parameters-title: 请求参数说明
-:operation-request-fields-title: 请求参数说明
-:operation-path-parameters-title: 请求参数说明
-:operation-http-response-title: Http 响应
+:operation-http-request-title: Http 请求示例
+:operation-request-headers-title: 请求头说明
+:operation-request-parameters-title: 请求参数说明(query)
+:operation-request-fields-title: 请求参数说明（body）
+:operation-path-parameters-title: 请求参数说明(path)
+:operation-http-response-title: Http 响应示例
 :operation-response-fields-title: Http 响应字段说明
 
 [[overview]]
