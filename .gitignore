@@ -27,3 +27,5 @@ HELP.md
 
 ### VS Code ###
 .vscode/
+validator-oss/target/
+validator-portal/target/
