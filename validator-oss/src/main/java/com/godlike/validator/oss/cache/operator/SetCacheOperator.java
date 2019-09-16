@@ -36,7 +36,6 @@ public class SetCacheOperator<V> extends CacheOperator<V> {
     }
 
     private SetOperations<String, V> opsForSet() {
-        setDefaultSerializer();
         return redisTemplate.opsForSet();
     }
 }

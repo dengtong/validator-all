@@ -58,7 +58,6 @@ public class HashCacheOperator<HK, HV> extends CacheOperator<HV> {
     }
 
     private HashOperations<String, HK, HV> opsForHash() {
-        setDefaultSerializer();
         return redisTemplate.opsForHash();
     }
 

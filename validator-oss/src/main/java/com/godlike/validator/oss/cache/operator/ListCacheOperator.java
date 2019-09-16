@@ -38,7 +38,6 @@ public class ListCacheOperator<V> extends CacheOperator<V> {
     }
 
     private ListOperations<String, V> opsForList() {
-        setDefaultSerializer();
         return redisTemplate.opsForList();
     }
 }

@@ -73,7 +73,6 @@ public class ZSetCacheOperator<V> extends CacheOperator<V> {
     }
 
     private ZSetOperations<String, V> opsForZSet() {
-        setDefaultSerializer();
         return redisTemplate.opsForZSet();
     }
 }

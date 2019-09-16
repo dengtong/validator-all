@@ -62,7 +62,6 @@ public class ValueCacheOperator extends CacheOperator<String> {
     }
 
     private ValueOperations<String, String> opsForValue() {
-        setDefaultSerializer();
         return redisTemplate.opsForValue();
     }
 }

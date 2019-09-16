@@ -5,7 +5,6 @@ import com.godlike.validator.oss.enums.cache.CacheTimeoutEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
@@ -44,7 +43,6 @@ public class CacheOperator<V> {
 
     public final void delete(List<Object> keySuffixes) {
         String key = getKey(keySuffixes);
-        setDefaultSerializer();
         redisTemplate.delete(key);
         if (logger.isDebugEnabled()) {
             logger.debug("delete cache success. KeyPattern:{}", key);
@@ -79,16 +77,11 @@ public class CacheOperator<V> {
             int min = 1000;
             random = (int) (Math.random() * (max - min) + min);
         }
-        setDefaultSerializer();
         return redisTemplate.expire(getKey(keySuffixes), cacheTimeout.getUnit().toMillis(cacheTimeout.getTimeout()) + random, TimeUnit.MILLISECONDS);
     }
 
     private Class<V> getVClass() {
         Class<V> tClass = (Class<V>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         return tClass;
-    }
-
-    public void setDefaultSerializer() {
-        redisTemplate.setDefaultSerializer(new Jackson2JsonRedisSerializer<>(getVClass()));
     }
 }
