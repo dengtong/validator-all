@@ -5,13 +5,13 @@ import com.godlike.validator.oss.exception.InternalServerErrorException;
 import com.godlike.validator.oss.service.person.UserServiceV1;
 import com.godlike.validator.oss.vo.person.UserQueryV1;
 import com.godlike.validator.oss.vo.person.UserVoV1;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -20,8 +20,12 @@ import java.util.List;
 @CrossOrigin
 @RestController
 public class UserApiV1 {
-    @Resource
-    private UserServiceV1 userServiceV1;
+    private final UserServiceV1 userServiceV1;
+
+    @Autowired
+    public UserApiV1(UserServiceV1 userServiceV1) {
+        this.userServiceV1 = userServiceV1;
+    }
 
     @GetMapping
     @JsonView({UserVoV1.ListView.class})
