@@ -9,7 +9,7 @@ spring:
     add-mappings: false
   redis:
     database: 5
-    host: 192.168.0.234
+    host: 192.168.1.234
     port: 6379
     password: Root123~
     lettuce:
